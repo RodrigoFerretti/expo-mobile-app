@@ -13,9 +13,14 @@ export default function MenuItems() {
                 renderItem={renderItem}
                 keyExtractor={keyExtractor}
                 indicatorStyle="white"
+                ItemSeparatorComponent={Separator}
             ></FlatList>
         </View>
     );
+}
+
+function Separator() {
+    return <View style={style.separator}></View>;
 }
 
 const Item = ({ item }: { item: Item }) => {
@@ -64,6 +69,10 @@ const style = StyleSheet.create({
         padding: 10,
         color: "white",
         fontWeight: "bold",
+    },
+    separator: {
+        borderBottomColor: "white",
+        borderBottomWidth: 1,
     },
     innerContainer: {
         flexDirection: "row",
