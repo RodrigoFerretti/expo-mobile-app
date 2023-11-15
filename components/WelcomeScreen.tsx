@@ -17,7 +17,7 @@ export default function Welcome() {
 
 const style = StyleSheet.create({
     container: {
-        backgroundColor: "#333333",
+        flex: 1,
     },
     innerContainer: {
         alignItems: "center",

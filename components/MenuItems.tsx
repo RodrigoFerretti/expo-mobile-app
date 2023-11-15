@@ -7,6 +7,7 @@ export default function MenuItems() {
 
     return (
         <View style={style.container}>
+            <Text style={style.titleText}>Menu</Text>
             <FlatList
                 data={items}
                 renderItem={renderItem}
@@ -54,9 +55,15 @@ const items = [
 
 const style = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#333333",
+        flex: 2.2,
         paddingBottom: 20,
+    },
+    titleText: {
+        textAlign: "center",
+        fontSize: 25,
+        padding: 10,
+        color: "white",
+        fontWeight: "bold",
     },
     innerContainer: {
         flexDirection: "row",
