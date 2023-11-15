@@ -1,9 +1,12 @@
 import * as React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import Footer from "./Footer";
 import Header from "./Header";
 
 export default function WelcomeScreen() {
+    const renderItem = ({ item }: { item: Item }) => <Item item={item} />;
+    const keyExtractor = (item: Item) => item.id;
+
     return (
         <>
             <Header></Header>
@@ -18,9 +21,13 @@ export default function WelcomeScreen() {
 
                 <View style={style.menuView}>
                     <Text style={style.textTitle}>Menu</Text>
-                    <ScrollView indicatorStyle="white" style={style.menuScroll}>
-                        <Text style={style.menuItems}>{items}</Text>
-                    </ScrollView>
+                    <FlatList
+                        data={items}
+                        renderItem={renderItem}
+                        keyExtractor={keyExtractor}
+                        indicatorStyle="white"
+                        style={style.menuScroll}
+                    ></FlatList>
                 </View>
             </View>
             <Footer></Footer>
@@ -28,13 +35,45 @@ export default function WelcomeScreen() {
     );
 }
 
-const items =
-    " Hummus \n Moutabal \n Falafel \n Marinated Olives \n Kofta \n Eggplant Salad \n Lentil Burger \n Smoked Salmon \n Kofta Burger \n Turkish Kebab \n Fries \n Buttered Rice \n Bread Sticks \n Pita Pocket \n Lentil Soup \n Greek Salad \n Rice Pilaf \n Baklava \n Tartufo \n Tiramisu \n Panna Cotta";
+const Item = ({ item }: { item: Item }) => {
+    return (
+        <View style={style.menuItemView}>
+            <Text style={style.menuItemText}>{item.name}</Text>
+        </View>
+    );
+};
+
+type Item = (typeof items)[number];
+
+const items = [
+    { name: "Hummus", id: "1A" },
+    { name: "Moutabal", id: "2B" },
+    { name: "Falafel", id: "3C" },
+    { name: "Marinated Olives", id: "4D" },
+    { name: "Kofta", id: "5E" },
+    { name: "Eggplant Salad", id: "6F" },
+    { name: "Lentil Burger", id: "7G" },
+    { name: "Smoked Salmon", id: "8H" },
+    { name: "Kofta Burger", id: "9I" },
+    { name: "Turkish Kebab", id: "10J" },
+    { name: "Fries", id: "11K" },
+    { name: "Buttered Rice", id: "12L" },
+    { name: "Bread Sticks", id: "13M" },
+    { name: "Pita Pocket", id: "14N" },
+    { name: "Lentil Soup", id: "15O" },
+    { name: "Greek Salad", id: "16Q" },
+    { name: "Rice Pilaf", id: "17R" },
+    { name: "Baklava", id: "18S" },
+    { name: "Tartufo", id: "19T" },
+    { name: "Tartufo", id: "20U" },
+    { name: "Tiramisu", id: "21V" },
+    { name: "Panna Cotta", id: "22W" },
+];
 
 const style = StyleSheet.create({
     pageView: {
         flex: 1,
-        backgroundColor: "#495E57",
+        backgroundColor: "#333333",
     },
     welcomeView: {
         alignItems: "center",
@@ -54,13 +93,21 @@ const style = StyleSheet.create({
         maxWidth: 300,
     },
     menuView: {
-        flex: 2,
+        flex: 2.2,
         alignItems: "center",
+        paddingBottom: 20,
     },
-    menuScroll: {},
-    menuItems: {
+    menuScroll: {
+        paddingHorizontal: 100,
+    },
+    menuItemView: {
+        paddingVertical: 20,
+        paddingHorizontal: 20,
+    },
+    menuItemText: {
         textAlign: "center",
         color: "white",
         fontSize: 20,
+        letterSpacing: 3,
     },
 });

@@ -12,15 +12,16 @@ export default function Footer() {
 
 const style = StyleSheet.create({
     footerView: {
-        backgroundColor: "#495E57",
+        backgroundColor: "#333333",
     },
     footerStripe: {
-        backgroundColor: "#F4CE14",
+        backgroundColor: "#EE9972",
         marginBottom: 10,
     },
     footerText: {
         fontSize: 18,
         color: "black",
         textAlign: "center",
+        fontStyle: "italic"
     },
 });

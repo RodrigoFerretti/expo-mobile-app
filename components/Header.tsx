@@ -12,7 +12,7 @@ const style = StyleSheet.create({
     headerView: {
         justifyContent: "flex-end",
         flex: 0.12,
-        backgroundColor: "#F4CE14",
+        backgroundColor: "#EE9972",
     },
     headerText: {
         textAlign: "center",
