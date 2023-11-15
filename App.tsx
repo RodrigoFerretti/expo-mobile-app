@@ -1,6 +1,15 @@
 import * as React from "react";
-import WelcomeScreen from "./components/WelcomeScreen";
+import Welcome from "./components/WelcomeScreen";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import MenuItems from "./components/MenuItems";
 
 export default function App() {
-    return <WelcomeScreen></WelcomeScreen>;
+    return (
+        <>
+            <Header></Header>
+            <MenuItems></MenuItems>
+            <Footer></Footer>
+        </>
+    );
 }
